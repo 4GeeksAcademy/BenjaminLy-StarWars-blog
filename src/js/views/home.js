@@ -10,8 +10,8 @@ export const Home = () => {
 		<div className="container p-1">
 			<h2>People</h2>
 			<div className="row overflow-scroll flex-nowrap">
-			{store.people.map((item, idx) => (
-				<Card item={item} key={idx} idx={idx} category="people"/>
+			{store.characters.map((item, idx) => (
+				<Card item={item} key={idx} idx={idx} category="characters"/>
 			))}
 			</div>
 			<h2>Vehicles</h2>

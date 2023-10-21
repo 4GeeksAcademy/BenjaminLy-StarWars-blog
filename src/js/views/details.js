@@ -8,11 +8,11 @@ export const Details = (props) => {
   let item = store[params.category][params.idx];
   return (
     <div className="container">
-      <div className="top">
-        <div className="top-left">
-          <img src="..." />
+      <div className="top row">
+        <div className="top-left col-md-6">
+          <img src="https://via.placeholder.com/600x500"/>
         </div>
-        <div className="top-right">
+        <div className="top-right col-md-6">
           <h1>{item.name}</h1>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -28,15 +28,33 @@ export const Details = (props) => {
         </div>
       </div>
       <div className="bottom row">
-        <div className="col"></div>
-        <div className="col"></div>
-        <div className="col"></div>
-        <div className="col"></div>
-        <div className="col"></div>
-        <div className="col"></div>
+        <div className="col">
+          Name:
+        <p>{item.name}</p>
+        </div>
+        <div className="col">
+          Birth Year:
+          <p>{item.birth_year}</p>
+          </div>
+        <div className="col">
+          Gender:
+          <p>{item.gender}</p>
+        </div>
+        <div className="col">
+          Height:
+          <p>{item.height}</p>
+        </div>
+        <div className="col">
+          Hair Color:
+          <p>{item.hair_color}</p>
+        </div>
+        <div className="col">
+          Skin Color:
+          <p>{item.skin_color}</p>
+        </div>
       </div>
       <Link to="/">
-        <span className="btn btn-primary btn-lg" href="#" role="button">
+        <span className="btn btn-primary btn-sm" href="#" role="button">
           Back home
         </span>
       </Link>

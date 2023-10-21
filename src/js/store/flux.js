@@ -3,7 +3,7 @@ import { json } from "react-router";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			people: [],
+			characters: [],
 			starships: [],
 			vehicles: [],
 			species: [],
@@ -16,7 +16,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let store = getStore()
 				fetch(store.apiURL + 'people')
 				.then(response => response.json())
-				.then(data => setStore({people: data.results}))
+				.then(data => setStore({characters: data.results}))
 				.catch(error => console.log(error))
 			  },
 			  fetchVehicles:  () => {
