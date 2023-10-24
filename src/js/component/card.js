@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 import "../../styles/home.css";
 
 export const Card = (props) => {
+    const { store, actions } = useContext(Context);
     let cardContent = null;
     if (props.category === 'characters') {
         cardContent = (
@@ -39,7 +41,11 @@ export const Card = (props) => {
     return (
         <div className='col-sm-3'>
             <div className="card" style={{ width: '18rem' }}>
-                <img src={`https://starwars-visualguide.com/assets/img/${props.category}/${props.idx + 1}.jpg`} className="card-img-top" alt="..." />
+                <img src={`https://starwars-visualguide.com/assets/img/${props.category}/${props.idx + 1}.jpg`} className="card-img-top"
+                onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = 'https://starwars-visualguide.com/assets/img/placeholder.jpg';
+                }}/>
                 <div className="card-body">
                     <h5 className="card-title">{props.item.name}</h5>
                     {cardContent}
@@ -49,7 +55,8 @@ export const Card = (props) => {
                         </a>
                     </Link>
                     <button className="btn border-warning mx-2">
-                        <i className="fa-regular fa-star"></i>
+                        <i className={"fa-star " + (store.favorites.find((i , id) => i.item == props.item) ? "fa-solid" : "fa-regular" ) }
+                        onClick={()=>actions.updateFavorites(props.item, props.category)}></i>
                     </button>
                 </div>
             </div>

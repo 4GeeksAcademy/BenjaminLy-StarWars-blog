@@ -47,7 +47,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 				.then(data => setStore({species: data.results}))
 				.catch(error => console.log(error))
 			  },
-			  
+			  updateFavorites: (item, category) => {
+				let store = getStore()
+				if (store.favorites.find((i, id) => i.item == item)){
+					let newFavorites = store.favorites.filter((i , id) => i.item != item )
+					setStore({favorites: newFavorites})
+				} else {
+					store.favorites.push({item : item, category : category})
+					setStore(store)
+				}
+			  }
 		}
 	};
 };
