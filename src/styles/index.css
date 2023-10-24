@@ -13,4 +13,11 @@ h2{
     color: rgb(161, 12, 12);
 }
 
+.top-left{
+    padding-left: 100px;
+    img{
+        height: 500px;
+        width: 400px
+    }
+}
 
